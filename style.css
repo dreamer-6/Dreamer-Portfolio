@@ -469,7 +469,7 @@ button {
   z-index: 7;
   right: -5%;
   bottom: 5%;
-  width: min(450px, 40%);
+  width: min(450px, 48%);
   padding: 1rem 1.1rem;
   border: 1px solid var(--border-light);
   border-radius: 12px;
@@ -1003,7 +1003,7 @@ button {
 .section-title {
   font-family: var(--header-font);
   /*   font-size: clamp(1.5rem, 2.3vw, 4rem); */
-  font-size: clamp(2.5rem, 2.3vw, 4.5rem);
+  font-size: clamp(2.8rem, 3vw, 4.5rem);
   line-height: 1.15;
   letter-spacing: -0.04em;
   margin-bottom: 1rem;
@@ -1034,7 +1034,7 @@ button {
 
 .about-content p {
   font-family: var(--body-font);
-  font-size: 1rem;
+  font-size: 0.8rem;
   color: var(--text-muted);
   line-height: 1.5;
   max-width: 520px;
@@ -1433,7 +1433,7 @@ button {
 .projects-title {
   margin: 0;
   font-family: var(--header-font);
-  font-size: clamp(2.5rem, 2.3vw, 4.5rem);
+  font-size: clamp(2.8rem, 4vw, 4.5rem);
   font-weight: 400;
   line-height: 0.98;
   letter-spacing: -0.055em;
@@ -1505,10 +1505,39 @@ button {
 
 .project-card {
   min-width: 0;
-  padding: 0;
-  background: transparent;
+  background: #111318;
   border-right: 1px solid var(--dark-border);
-  padding-right: 1.2rem;
+  padding: 0.5rem;
+  border-radius: 0.45rem;
+  border: 1px solid rgba(255, 255, 255, 0.055);
+  overflow: hidden;
+  transition: all 0.3s ease;
+  position: relative;
+
+}
+
+.project-card::after {
+  content: "";
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  right: -55px;
+  bottom: -60px;
+  border-radius: 50%;
+  background: var(--accent);
+  opacity: 0;
+  filter: blur(30px);
+  transition: opacity 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(108, 77, 255, 0.5);
+  background: #14151b;
+}
+
+.project-card:hover::after {
+  opacity: 1;
 }
 
 .project-card:last-child {
@@ -1536,10 +1565,10 @@ button {
     filter 0.45s ease;
 }
 
-.project-card:hover .project-image {
+/* .project-card:hover .project-image {
   transform: scale(1.04);
   filter: brightness(1.08);
-}
+} */
 
 /* =====================================================
    PROJECT NUMBER
@@ -2141,6 +2170,570 @@ button {
 
   .skill-card span {
     font-size: 0.72rem;
+  }
+
+}
+
+/* =========================================================
+   HARDWARE SECTION
+========================================================= */
+
+.hardware-section {
+  position: relative;
+  background:
+    radial-gradient(circle at 42% 50%,
+      rgba(108, 77, 255, 0.10),
+      transparent 30%),
+    radial-gradient(circle at 80% 35%,
+      rgba(108, 77, 255, 0.05),
+      transparent 25%),
+    var(--primary-background-2);
+
+  color: var(--text-primary);
+  overflow: hidden;
+}
+
+
+/* =========================================================
+   MAIN CONTAINER
+========================================================= */
+
+.hardware-container {
+  position: relative;
+  width: min(1500px, 100%);
+  min-height: 620px;
+  margin: 0 auto;
+  padding: 5rem 4rem 4.5rem;
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(380px, 0.75fr);
+  align-items: center;
+  gap: 2rem;
+  isolation: isolate;
+}
+
+/* =========================================================
+   IMAGE AREA
+========================================================= */
+
+.hardware-image-sec {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+
+/* Atmospheric purple behind the setup */
+
+.hardware-image-sec::before {
+  content: "";
+  position: absolute;
+  width: 65%;
+  aspect-ratio: 1;
+  left: 42%;
+  top: 48%;
+  transform: translate(-50%, -50%);
+  background: rgba(108, 77, 255, 0.16);
+  border-radius: 50%;
+  filter: blur(80px);
+  z-index: -2;
+  pointer-events: none;
+}
+
+/* =========================================================
+   ORBIT RING
+========================================================= */
+
+.hardware-image-sec::after {
+  content: "";
+  position: absolute;
+  width: 75%;
+  height: 38%;
+  left: 48%;
+  top: 48%;
+  transform: translate(-50%, -50%) rotate(-12deg);
+  border: 1px solid rgba(167, 139, 250, 0.28);
+  border-radius: 50%;
+  box-shadow:
+    0 0 20px rgba(108, 77, 255, 0.08),
+    inset 0 0 20px rgba(108, 77, 255, 0.04);
+
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* =========================================================
+   HARDWARE IMAGE
+========================================================= */
+
+.pc-setup {
+  display: block;
+  width: min(100%, 850px);
+  height: auto;
+  object-fit: contain;
+  position: relative;
+  z-index: 2;
+  transform: translateX(-2rem);
+  filter:
+    drop-shadow(0 25px 45px rgba(0, 0, 0, 0.55)) drop-shadow(0 0 35px rgba(108, 77, 255, 0.16));
+  transition:
+    transform 0.5s ease,
+    filter 0.5s ease;
+}
+
+.hardware-image-sec:hover .pc-setup {
+  transform: translateX(-2rem) translateY(-5px);
+  filter:
+    drop-shadow(0 30px 55px rgba(0, 0, 0, 0.6)) drop-shadow(0 0 45px rgba(108, 77, 255, 0.22));
+}
+
+/* =========================================================
+   TEXT SIDE
+========================================================= */
+
+.hardware-container>.projects-heading {
+  position: relative;
+  z-index: 5;
+  padding-left: 1rem;
+  max-width: 580px;
+}
+
+.hardware-container .section-label {
+  margin-bottom: 1.25rem;
+  font-family: var(--section-font);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--secondary-text);
+}
+
+.hardware-container .section-label span {
+  color: var(--accent);
+}
+
+.hardware-title {
+  margin: 0 0 1.5rem;
+  font-family: var(--header-font);
+  font-size: clamp(2.7rem, 4.2vw, 5rem);
+  font-weight: 400;
+  line-height: 0.92;
+  letter-spacing: -0.055em;
+  color: var(--secondary-text);
+}
+
+.hardware-title span {
+  color: var(--accent);
+}
+
+.hardware-desc {
+  max-width: 500px;
+  margin: 0 0 1.5rem;
+  font-family: var(--body-font);
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+}
+
+.hardware-tags {
+  margin: 0;
+  font-family: var(--section-font);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.32em;
+  color: var(--secondary-text);
+}
+
+.hardware-tags span {
+  margin: 0 0.25rem;
+  color: var(--accent);
+}
+
+/* =========================================================
+   WATERMARK
+========================================================= */
+
+.hardware-watermark {
+  position: absolute;
+  top: -0.5rem;
+  right: 1rem;
+  z-index: 0;
+  margin: 0;
+  font-family: var(--header-font);
+  font-size: clamp(6rem,13vw,14rem);
+  line-height: 1;
+  letter-spacing: -0.07em;
+  color: rgba(108, 77, 255, 0.035);
+  pointer-events: none;
+  user-select: none;
+}
+
+/* =========================================================
+   DOT GRID
+========================================================= */
+
+.hardware-dots {
+  position: absolute;
+  right: 2rem;
+  bottom: 6.5rem;
+  width: 80px;
+  display: grid;
+  grid-template-columns: repeat(5, 4px);
+  gap: 8px;
+  opacity: 0.4;
+  z-index: 1;
+}
+
+.hardware-dots span {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--white-soft);
+}
+
+
+/* =========================================================
+   BOTTOM QUOTE
+========================================================= */
+.hardware-quote {
+  position: absolute;
+  left: 3rem;
+  bottom: 6.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 0;
+  font-family: var(--body-font);
+  text-transform: uppercase;
+  font-size: 0.52rem;
+  letter-spacing: 0.18em;
+  font-weight: 500;
+  color: var(--text-muted);
+  z-index: 5;
+  white-space: nowrap;
+}
+
+.quote-line {
+  display: block;
+  width: 300px;
+  height: 1px;
+  background: var(--text-muted);
+  flex-shrink: 0;
+}
+.quote-text {
+  display: block;
+}
+.quote-accent {
+  display: block;
+  width: 28px;
+  height: 2px;
+  margin-left: 0.5rem;
+  background: var(--accent);
+  flex-shrink: 0;
+}
+.hardware-container::before {
+  content: "";
+  position: absolute;
+  top: 1.5rem;
+  left: 4rem;
+  right: 4rem;
+  height: 1px;
+  background: linear-gradient(to right,
+      transparent,
+      var(--dark-border),
+      transparent);
+  opacity: 0.6;
+}
+
+.hardware-container::after {
+  content: "";
+  position: absolute;
+  bottom: 1.5rem;
+  left: 4rem;
+  right: 4rem;
+  height: 1px;
+  background: linear-gradient(to right,
+      transparent,
+      var(--dark-border),
+      transparent);
+  opacity: 0.6;
+}
+
+
+/* =========================================================
+   LARGE LAPTOP
+========================================================= */
+
+@media (max-width: 1200px) {
+
+  .hardware-container {
+    grid-template-columns:
+      minmax(0, 1.15fr) minmax(350px, 0.85fr);
+
+    padding-inline: 3rem;
+
+    gap: 1rem;
+  }
+
+  .pc-setup {
+    width: min(100%, 750px);
+    transform: translateX(-1rem);
+  }
+
+  .hardware-title {
+    font-size: clamp(2.6rem, 4.5vw, 4.2rem);
+  }
+
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+  .hardware-container {
+    min-height: auto;
+
+    padding:
+      5rem 2rem 5rem;
+
+    grid-template-columns: 1fr;
+
+    gap: 3rem;
+  }
+
+  .hardware-container>.projects-heading {
+    order: 1;
+
+    max-width: 700px;
+
+    padding-left: 0;
+  }
+
+  .hardware-image-sec {
+    order: 2;
+
+    min-height: auto;
+  }
+
+  .pc-setup {
+    width: min(100%, 720px);
+
+    transform: none;
+  }
+
+  .hardware-image-sec:hover .pc-setup {
+    transform: translateY(-4px);
+  }
+
+  .hardware-image-sec::before {
+    width: 55%;
+  }
+
+  .hardware-image-sec::after {
+    width: 70%;
+  }
+
+  .hardware-watermark {
+    top: 1rem;
+    right: 1rem;
+  }
+
+  .hardware-dots {
+    left: 2rem;
+    bottom: 2rem;
+  }
+
+  .hardware-quote {
+    right: 2rem;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+  .hardware-container {
+    padding:
+      4rem 1.25rem 4rem;
+
+    gap: 2.5rem;
+  }
+
+  .hardware-container::before {
+    left: 1.25rem;
+    right: 1.25rem;
+  }
+
+  .hardware-container::after {
+    left: 1.25rem;
+    right: 1.25rem;
+  }
+
+
+  /* Text */
+
+  .hardware-container>.projects-heading {
+    width: 100%;
+  }
+
+  .hardware-container .section-label {
+    font-size: 0.68rem;
+
+    letter-spacing: 0.07em;
+
+    margin-bottom: 1rem;
+  }
+
+  .hardware-title {
+    font-size: clamp(2.35rem,
+        11vw,
+        3.5rem);
+
+    line-height: 0.94;
+
+    margin-bottom: 1.25rem;
+  }
+
+  .hardware-desc {
+    max-width: 100%;
+
+    font-size: 0.82rem;
+
+    line-height: 1.65;
+
+    margin-bottom: 1.25rem;
+  }
+
+  .hardware-tags {
+    font-size: 0.62rem;
+
+    letter-spacing: 0.18em;
+  }
+
+
+  /* Image */
+
+  .hardware-image-sec {
+    min-height: 260px;
+
+    margin-top: 0.5rem;
+  }
+
+  .pc-setup {
+    width: 115%;
+    max-width: none;
+
+    transform: none;
+  }
+
+  .hardware-image-sec:hover .pc-setup {
+    transform: none;
+  }
+
+  .hardware-image-sec::before {
+    width: 75%;
+
+    filter: blur(55px);
+  }
+
+  .hardware-image-sec::after {
+    width: 95%;
+    height: 35%;
+  }
+
+
+  /* Watermark */
+
+  .hardware-watermark {
+    top: 0;
+
+    right: -1rem;
+
+    font-size: 5rem;
+
+    opacity: 0.8;
+  }
+
+
+  /* Bottom decorations */
+
+  .hardware-dots {
+    left: 1.25rem;
+
+    bottom: 1.25rem;
+
+    transform: scale(0.8);
+
+    transform-origin: left bottom;
+  }
+
+  .hardware-quote {
+    right: 1.25rem;
+    left: 1.25rem;
+
+    justify-content: flex-end;
+
+    font-size: 0.42rem;
+    gap: 0.4rem;
+  }
+
+  .quote-line {
+    width: 35px;
+  }
+
+  .quote-accent {
+    width: 22px;
+  }
+}
+
+
+/* =========================================================
+   VERY SMALL PHONES
+========================================================= */
+
+@media (max-width: 380px) {
+
+  .hardware-container {
+    padding:
+      3.5rem 1rem 3.5rem;
+  }
+
+  .hardware-title {
+    font-size: 2.2rem;
+  }
+
+  .hardware-desc {
+    font-size: 0.78rem;
+  }
+
+  .hardware-tags {
+    font-size: 0.55rem;
+
+    letter-spacing: 0.13em;
+  }
+
+  .hardware-image-sec {
+    min-height: 220px;
+  }
+
+  .pc-setup {
+    width: 125%;
+  }
+
+  .hardware-watermark {
+    font-size: 4rem;
+  }
+
+  .hardware-quote {
+    display: none;
   }
 
 }
