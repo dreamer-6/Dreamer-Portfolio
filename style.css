@@ -619,18 +619,33 @@ button {
     max-width: 400px;
   }
 
+  .hero-glow {
+    width: 450px;
+    right: 18%;
+  }
+
   .hero-visual {
     min-height: 560px;
   }
 
+  .hero-image {
+    width: 1000px;
+    left: 5%;
+    bottom: 15%;
+  }
+
   .code-card {
     width: 290px;
+    bottom: 2%;
   }
 
   .side-words {
     display: none;
   }
 
+  .hero-stats{
+    bottom: 1%;
+  }
   .stat-item {
     padding-inline: 1rem;
   }
@@ -662,7 +677,7 @@ button {
 
   .hero-sec {
     min-height: auto;
-    padding: 8rem 1.5rem 2.5rem;
+    padding: 8rem 1.5rem 0rem;
   }
 
   .hero-container {
@@ -701,7 +716,7 @@ button {
   }
 
   .hero-glow {
-    width: min(70vw, 500px);
+    width: min(65vw, 450px);
     top: 5%;
     right: 50%;
     transform: translateX(50%);
@@ -709,21 +724,25 @@ button {
 
   .hero-image {
     width: min(100%, 520px);
+    left: 8%;
   }
 
   .hero-note {
-    left: 5%;
-    top: 25%;
+    left: 15%;
+    top: 50%;
   }
 
   .code-card {
     right: 3%;
-    bottom: 8%;
+    top: 8%;
     width: min(310px, 42%);
+    max-height: 150px;
   }
 
   .hero-stats {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(4, 1fr);
+    width: 100%;
+    bottom: 1%;
     gap: 1rem;
     border-top: none;
     margin-top: 1rem;
@@ -883,6 +902,46 @@ button {
   }
 }
 
+@media (max-width:420px) {
+  .hero-sec{
+    padding-bottom: 1rem;
+  }
+  .hero-visual{
+    margin-bottom: 0.5rem;
+  }
+  .hero-image {
+    width: 100%;
+    max-width: 650px;
+    left: 20%;
+    top: 0;
+  }
+
+  .hero-glow {
+    top: 10%;
+  }
+
+  .hero-container {
+    gap: 0;
+  }
+
+  .code-card {
+    display: none;
+    right: -0.2rem;
+    bottom: -5px;
+    width: 220px;
+    padding: 0.75rem;
+    border-radius: 9px;
+  }
+
+  .hero-note {
+    top: 50%;
+  }
+  .hero-stats{
+    padding-top: 0.1rem;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
 /* =====================================================
    SMALL MOBILE
 ===================================================== */
@@ -916,14 +975,15 @@ button {
   }
 
   .hero-glow {
-    top: -10%;
+    top: 10%;
   }
 
   .hero-image {
-    left: 18%;
+    left: 25%;
   }
 
   .code-card {
+    display: none;
     bottom: 0;
     width: 165px;
   }
@@ -933,6 +993,7 @@ button {
   }
 
   .hero-note {
+    top: 40%;
     font-size: 0.6rem;
   }
 
@@ -1433,7 +1494,7 @@ button {
 .projects-title {
   margin: 0;
   font-family: var(--header-font);
-  font-size: clamp(2.8rem, 4vw, 4.5rem);
+  font-size: clamp(2.8rem, 4vw, 6rem);
   font-weight: 400;
   line-height: 0.98;
   letter-spacing: -0.055em;
@@ -1699,6 +1760,7 @@ button {
 @media (max-width: 900px) {
   .projects-container {
     padding: 4rem 2rem;
+    display: grid;
     grid-template-columns: 1fr;
     gap: 2.5rem;
   }
@@ -1708,7 +1770,7 @@ button {
   }
 
   .projects-title {
-    font-size: clamp(2.8rem, 7vw, 4.5rem);
+    font-size: clamp(2.3rem, 5.5vw, 3rem);
   }
 
   .projects-intro {
@@ -1753,7 +1815,7 @@ button {
   }
 
   .projects-title {
-    font-size: clamp(2.4rem, 11vw, 3.5rem);
+    font-size: clamp(2.5rem, 12vw, 3.5rem);
     line-height: 1;
     letter-spacing: -0.05em;
   }
@@ -1777,12 +1839,12 @@ button {
   /* Stack cards */
 
   .project-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
     gap: 2rem;
   }
 
   .project-card {
-    padding: 0 0 2rem;
+    padding: 0.8rem;
     border-right: none;
     border-bottom: 1px solid var(--dark-border);
   }
@@ -1820,11 +1882,15 @@ button {
   }
 
   .projects-title {
-    font-size: clamp(2.15rem, 12vw, 3rem);
+    font-size: clamp(2.5rem, 12vw, 3rem);
   }
 
   .projects-intro p {
     font-size: 0.75rem;
+  }
+
+  .project-grid {
+    grid-template-columns: 1fr;
   }
 
   .project-preview {
@@ -1837,6 +1903,12 @@ button {
     min-width: 29px;
     height: 24px;
     font-size: 0.58rem;
+  }
+}
+
+@media (max-width:420px) {
+  .projects-container {
+    flex-direction: column;
   }
 }
 
@@ -2205,7 +2277,7 @@ button {
   margin: 0 auto;
   padding: 5rem 4rem 4.5rem;
   display: grid;
-  grid-template-columns: minmax(0, 1.25fr) minmax(380px, 0.75fr);
+  grid-template-columns: minmax(0, 1.5fr) minmax(380px, 0.75fr);
   align-items: center;
   gap: 2rem;
   isolation: isolate;
@@ -2377,7 +2449,7 @@ button {
 .hardware-dots {
   position: absolute;
   right: 2rem;
-  bottom: 6.5rem;
+  bottom: 4rem;
   width: 80px;
   display: grid;
   grid-template-columns: repeat(5, 4px);
@@ -2400,7 +2472,7 @@ button {
 .hardware-quote {
   position: absolute;
   left: 3rem;
-  bottom: 6.5rem;
+  bottom: 4rem;
   display: flex;
   align-items: center;
   gap: 0.75rem;
@@ -2489,6 +2561,10 @@ button {
     font-size: clamp(2.6rem, 4.5vw, 4.2rem);
   }
 
+  .quote-line {
+    width: 200px;
+  }
+
 }
 
 
@@ -2547,15 +2623,26 @@ button {
   }
 
   .hardware-dots {
-    left: 2rem;
+    right: 2rem;
     bottom: 2rem;
   }
 
   .hardware-quote {
-    right: 2rem;
+    left: 1rem;
+    bottom: 2rem;
   }
 }
 
+@media (max-width:420px) {
+  .quote-line {
+    width: 50px;
+  }
+
+  .hardware-dots {
+    display: none;
+  }
+
+}
 
 /* =========================================================
    MOBILE
@@ -2705,8 +2792,8 @@ button {
 @media (max-width: 380px) {
 
   .hardware-container {
-    padding:
-      3.5rem 1rem 3.5rem;
+    padding: 3.5rem 1rem 3.5rem;
+    gap: 1rem;
   }
 
   .hardware-title {
@@ -2728,7 +2815,7 @@ button {
   }
 
   .pc-setup {
-    width: 125%;
+    width: 105%;
   }
 
   .hardware-watermark {
@@ -2830,7 +2917,7 @@ button {
   max-width: 720px;
 
   font-family: var(--header-font);
-  font-size: clamp(3.5rem, 6vw, 6.5rem);
+  font-size: clamp(3.5rem, 5.2vw, 6.5rem);
   line-height: 0.9;
   letter-spacing: -0.06em;
 
@@ -2939,7 +3026,7 @@ button {
 .contact-meta {
   display: flex;
   align-items: center;
-
+  justify-content: center;
   margin-top: 3rem;
   gap: 1.4rem;
 }
@@ -2947,6 +3034,7 @@ button {
 .meta-item {
   display: flex;
   align-items: center;
+
   gap: 0.7rem;
 }
 
@@ -2999,8 +3087,9 @@ button {
 }
 
 .contact-card {
-  min-height: 82px;
-  padding: 0.8rem 1rem;
+  min-height: 52px;
+  max-width: 300px;
+  padding: 0.3rem 1rem;
 
   display: flex;
   align-items: center;
@@ -3096,7 +3185,7 @@ button {
 .contact-visual {
   position: absolute;
 
-  right: -3rem;
+  right: 0;
   bottom: 0;
 
   width: 52%;
@@ -3361,7 +3450,9 @@ button {
   }
 
   .contact-card {
+    min-width: 300px;
     min-height: 72px;
+    margin: 0 auto;
   }
 
   .contact-visual {
