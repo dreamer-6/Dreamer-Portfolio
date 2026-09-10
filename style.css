@@ -716,9 +716,9 @@ button {
   }
 
   .hero-glow {
-    width: min(65vw, 450px);
-    top: 5%;
-    right: 50%;
+    width: min(55vw, 450px);
+    top: 20%;
+    right: 28%;
     transform: translateX(50%);
   }
 
@@ -836,7 +836,7 @@ button {
     width: 78vw;
     max-width: 370px;
     top: 5%;
-    right: 50%;
+    right: 18%;
   }
 
   .hero-image {
@@ -857,8 +857,9 @@ button {
 
   .code-card {
     right: -0.3rem;
-    bottom: 3%;
+    top: 70%;
     width: 220px;
+    height: 100px;
     padding: 0.75rem;
     border-radius: 9px;
   }
@@ -917,7 +918,9 @@ button {
   }
 
   .hero-glow {
-    top: 10%;
+    width: 68vw;
+    top: 20%;
+    right: 15%;
   }
 
   .hero-container {
@@ -4176,4 +4179,4 @@ button {
   .back-to-top {
     transition: none !important;
   }
-}
+}
